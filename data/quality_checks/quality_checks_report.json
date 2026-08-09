@@ -1,0 +1,205 @@
+{
+  "generated_at_utc": "2026-08-09T05:48:33.951160+00:00",
+  "status": "WARN",
+  "summary": {
+    "total_checks": 16,
+    "passed_checks": 14,
+    "failed_checks": 2,
+    "critical_failed": 0,
+    "warning_failed": 2
+  },
+  "checks": [
+    {
+      "name": "staging_has_rows",
+      "severity": "critical",
+      "description": "A tabela staging.online_retail deve possuir registros.",
+      "status": "pass",
+      "observed_value": 541909,
+      "expected_rule": {
+        "operator": ">",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "analytics_fact_sales_has_rows",
+      "severity": "critical",
+      "description": "A tabela analytics.fact_sales deve possuir registros.",
+      "status": "pass",
+      "observed_value": 541909,
+      "expected_rule": {
+        "operator": ">",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_critical_fields_not_null",
+      "severity": "critical",
+      "description": "Campos críticos de staging.online_retail não devem ser nulos: invoice_no, invoice_date, quantity, unit_price, line_total, country e is_cancellation.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "analytics_fact_sales_critical_fields_not_null",
+      "severity": "critical",
+      "description": "Campos críticos de analytics.fact_sales não devem ser nulos: invoice_no, invoice_date, invoice_date_date, quantity, unit_price, line_total e is_cancellation.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_line_total_consistency",
+      "severity": "critical",
+      "description": "O campo line_total deve ser aproximadamente igual a quantity * unit_price em staging.online_retail.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "analytics_fact_sales_line_total_consistency",
+      "severity": "critical",
+      "description": "O campo line_total deve ser aproximadamente igual a quantity * unit_price em analytics.fact_sales.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_fact_sales_row_count_difference",
+      "severity": "critical",
+      "description": "A quantidade de registros em staging.online_retail deve ser igual à quantidade de registros em analytics.fact_sales.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "product_summary_has_rows",
+      "severity": "critical",
+      "description": "A tabela analytics.product_sales_summary deve possuir registros.",
+      "status": "pass",
+      "observed_value": 3958,
+      "expected_rule": {
+        "operator": ">",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "product_summary_unique_stock_code",
+      "severity": "critical",
+      "description": "Não devem existir stock_code duplicados em product_sales_summary.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "customer_summary_unique_customer_id",
+      "severity": "critical",
+      "description": "Não devem existir customer_id duplicados em customer_sales_summary.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "product_summary_covers_fact_sales_stock_codes",
+      "severity": "critical",
+      "description": "Todos os stock_code existentes em analytics.fact_sales devem estar representados em analytics.product_sales_summary.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "customer_summary_covers_fact_sales_customers",
+      "severity": "critical",
+      "description": "Todos os customer_id existentes em analytics.fact_sales devem estar representados em analytics.customer_sales_summary.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_invoice_date_out_of_reasonable_range",
+      "severity": "warning",
+      "description": "Datas de invoice muito antigas ou futuras são suspeitas. Intervalo esperado: a partir de 2005-01-01 até a data atual mais 1 dia.",
+      "status": "pass",
+      "observed_value": 0,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_negative_unit_price",
+      "severity": "warning",
+      "description": "Preços negativos são suspeitos e devem ser investigados, embora possam existir em alguns cenários de ajuste ou retorno.",
+      "status": "fail",
+      "observed_value": 2,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "staging_negative_quantity_not_cancellation",
+      "severity": "warning",
+      "description": "Quantidades negativas em registros não marcados como cancelamento podem indicar devolução não identificada ou problema de qualidade.",
+      "status": "fail",
+      "observed_value": 1336,
+      "expected_rule": {
+        "operator": "==",
+        "value": 0
+      },
+      "error": null
+    },
+    {
+      "name": "customer_summary_has_rows",
+      "severity": "warning",
+      "description": "A tabela analytics.customer_sales_summary deve possuir registros quando houver clientes válidos na fato.",
+      "status": "pass",
+      "observed_value": 4372,
+      "expected_rule": {
+        "operator": ">",
+        "value": 0
+      },
+      "error": null
+    }
+  ]
+}

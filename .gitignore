@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Dados locais
+
+data/external/*
+!data/external/.gitkeep
+
+data/raw/*
+!data/raw/.gitkeep
+
+# Ambiente e configurações locais
+.env
+.env.local
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Camada trusted
+data/trusted/*
+!data/trusted/.gitkeep

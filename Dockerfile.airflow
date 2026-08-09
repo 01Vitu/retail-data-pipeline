@@ -1,0 +1,11 @@
+FROM apache/airflow:2.9.2-python3.11
+
+USER root
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
+USER airflow
+
+# Copia o arquivo de requisitos compatível com o Airflow
+COPY requirements-airflow.txt /opt/airflow/
+RUN pip install --no-cache-dir -r /opt/airflow/requirements-airflow.txt

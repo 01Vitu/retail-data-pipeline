@@ -1,0 +1,26 @@
+# Git
+.git
+.gitignore
+
+# Ambiente virtual local
+.venv/
+venv/
+env/
+
+# Arquivos de ambiente locais 
+.env
+.env.*
+!.env.example
+
+# Dados locais 
+data/external/*
+data/raw/*
+data/trusted/*
+data/quality_checks/*
+
+# Cache e lixo do Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
