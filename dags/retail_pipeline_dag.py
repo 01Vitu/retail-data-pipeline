@@ -18,7 +18,6 @@ with DAG(
 ) as dag:
 
     # O WORKDIR da imagem do Airflow é /opt/airflow
-    # Nossos scripts e dados estão montados lá via volumes no docker-compose
 
     ingest = BashOperator(
         task_id='ingest_raw',
