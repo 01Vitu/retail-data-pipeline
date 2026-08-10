@@ -102,12 +102,4 @@ retail-data-pipeline/
 └── .env.example                 # template de configuração
 ```
 
-## ⭐ Destaques de engenharia
-
-- **Idempotência** por hash SHA-256 e `TRUNCATE ... RESTART IDENTITY`;
-- **Escrita atômica** de arquivos (`.tmp` → rename), sem artefatos corrompidos;
-- **Bulk insert** otimizado: carga de 541k linhas em segundos;
-- **Quality gate** com exit code — pronto para CI/CD;
-- **Segredos fora do código** via `.env` (nunca versionado);
-- **Rejeitos auditáveis** em vez de descarte silencioso.
 
